@@ -12,6 +12,5 @@ import org.junit.*
 class RottenTomatoesAPIServiceTests {
 
     void testSomething() {
-        fail "Implement me"
     }
 }

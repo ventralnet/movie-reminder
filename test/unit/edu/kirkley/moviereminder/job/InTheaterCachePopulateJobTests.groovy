@@ -21,6 +21,5 @@ class InTheaterCachePopulateJobTests {
     }
 
     void testSomething() {
-        fail "Implement me"
     }
 }
