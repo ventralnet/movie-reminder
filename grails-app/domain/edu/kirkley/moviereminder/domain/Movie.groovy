@@ -21,8 +21,6 @@ class Movie {
 
     long id
 
-    int pageNumber
-
     String title
 
     Date dvdReleaseDate
