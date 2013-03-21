@@ -39,7 +39,7 @@ class InTheatersAction {
             nextPageTheaterAction = new InTheatersAction(baseUrl, apiKey, itemsPerPage, pageNumber+1)
         }
 
-        [json:json,movies:jsonMap,nextPage:nextPageTheaterAction]
+        [thisAction:this,json:json,movies:jsonMap,nextPage:nextPageTheaterAction]
     }
 
     def getUrl() {
