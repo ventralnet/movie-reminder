@@ -2,7 +2,7 @@ package edu.kirkley.moviereminder.service
 
 import groovy.json.JsonSlurper
 
-class RottenTomatoesAPIService {
+class MovieService {
 
     def baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/"
     
