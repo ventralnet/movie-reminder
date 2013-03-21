@@ -16,7 +16,7 @@ class JsonToMovieTransformer {
 
         jsonMap.movies.collect { movieJson ->
             def movie = new Movie()
-            movie.dbId = movieJson.id as Long
+            movie.movieId = movieJson.id as Long
             movie.title = movieJson.title
             movie.mpaaRating = movieJson.mpaa_rating
             movie.runtime = toIntegerOrNull(movieJson.runtime)

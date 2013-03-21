@@ -75,7 +75,7 @@ class JsonToMovieTransformerUnitTest extends GroovyTestCase {
         def movies = new JsonToMovieTransformer().transformAll(sampleJson)
         assertEquals(1, movies.size())
         def movie = movies[0]
-        assertEquals(770687943,movie.dbId)
+        assertEquals(770687943,movie.movieId)
 
     }
 

@@ -17,7 +17,7 @@ class Movie {
         originalPosterUrl nullable:true
     }
 
-    long dbId
+    long movieId
 
     long id
 
