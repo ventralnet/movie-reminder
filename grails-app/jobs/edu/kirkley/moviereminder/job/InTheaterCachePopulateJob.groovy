@@ -23,7 +23,6 @@ class InTheaterCachePopulateJob {
             def movies = transformer.transformAll(result.json)
 
             movies.each {
-                it.pageNumber = action.pageNumber
                 def existingMovie = Movie.findByMovieId(it.movieId)
                 if (!existingMovie) {
                     it.save() 
@@ -32,8 +31,6 @@ class InTheaterCachePopulateJob {
                     it.save()
                 }
                 saveJsonToDisk(result)
-
-                
             }
 
 
