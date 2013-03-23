@@ -6,6 +6,7 @@
     </head>
     
     <body>
+
         <div class="container">
             <r:layoutResources />
             <g:layoutBody/>
