@@ -15,6 +15,7 @@ class Movie {
         profilePosterUrl nullable:true
         detailedPosterUrl nullable:true
         originalPosterUrl nullable:true
+        updateDate nullable:true
     }
 
     long movieId
@@ -40,5 +41,9 @@ class Movie {
     String detailedPosterUrl
 
     String originalPosterUrl
+
+    Date insertDate
+ 
+    Date updateDate
 
 }

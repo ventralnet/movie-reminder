@@ -13,6 +13,7 @@ class InitDatabaseBootStrap {
                     final URL resource = this.getClass().getClassLoader().getResource("resources/${filename}");
                     def jsonToMovieTransformer = new JsonToMovieTransformer()
                     def movies = jsonToMovieTransformer.transformAll(resource.text)
+                    movies*.insertDate = new Date()
                     movies.each{ it.save() }
                 }
                 
