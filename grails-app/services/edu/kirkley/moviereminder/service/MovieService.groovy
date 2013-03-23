@@ -1,17 +1,21 @@
 package edu.kirkley.moviereminder.service
 
 import groovy.json.JsonSlurper
+import edu.kirkley.moviereminder.domain.Movie
+import edu.kirkley.moviereminder.job.InTheaterCachePopulateJob
+
 
 class MovieService {
+    def pageSize = 200
 
-    def baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/"
-    
-    def apiKey = "a8nefdgjj5b9y482v453vmtn"
-    
-    def pageSize = 9
     
     def getMoviesInTheaters(pageNumber = 1) {
-        def movies = Movie.findAll
+        pageNumber = pageNumber as Integer
+        def movies = Movie.findAllByDvdReleaseDateIsNullOrDvdReleaseDateGreaterThan(new Date(),[max:pageSize, offset: (pageNumber-1)*pageSize, sort: "theaterReleaseDate", order:"desc"])
+        movies
     }
-    
+
+    def runJob() {
+        InTheaterCachePopulateJob.triggerNow()
+    }
 }

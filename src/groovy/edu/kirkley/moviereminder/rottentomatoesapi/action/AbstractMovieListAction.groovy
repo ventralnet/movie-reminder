@@ -16,7 +16,7 @@ abstract class AbstractMovieListAction {
 
     AbstractMovieListAction() {}
 
-    AbstractMovieListAction(String baseUrl, String apiKey, int itemsPerPage = 16, int pageNumber = 1) {
+    AbstractMovieListAction(String baseUrl, String apiKey, int itemsPerPage = 50, int pageNumber = 1) {
         this.baseUrl = baseUrl
         this.itemsPerPage = itemsPerPage
         this.pageNumber = pageNumber
@@ -43,5 +43,13 @@ abstract class AbstractMovieListAction {
     
     abstract createInstance(baseUrl, apiKey, itemsPerPage, pageNumber)
 
-    abstract getUrl()
+    def getUrl() {
+        "${baseUrl}/lists/${getURLListType()}/${getEndPointJsonFilename()}.json?apikey=${apiKey}&page_limit=${itemsPerPage}&page=${pageNumber}&limit=${itemsPerPage}"
+    }
+    
+    def getURLListType() {
+        "movies"
+    }
+    
+    abstract getEndPointJsonFilename()
 }

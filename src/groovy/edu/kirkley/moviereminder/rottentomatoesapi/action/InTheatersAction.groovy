@@ -16,8 +16,8 @@ class InTheatersAction extends AbstractMovieListAction {
     def createInstance(baseUrl, apiKey, itemsPerPage, pageNumber) {
         return new InTheatersAction(baseUrl,apiKey,itemsPerPage,pageNumber)
     }
-
-    def getUrl() {
-        "${baseUrl}/lists/movies/in_theaters.json?apikey=${apiKey}&page_limit=${itemsPerPage}&page=${pageNumber}"
+      
+    def getEndPointJsonFilename() {
+        "in_theaters"
     }
 }
