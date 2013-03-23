@@ -2,17 +2,7 @@ package edu.kirkley.moviereminder.rottentomatoesapi.action
 
 import groovy.json.JsonSlurper
 
-class InTheatersAction {
-
-    String baseUrl
-
-    int itemsPerPage
-
-    int pageNumber
-
-    String firstPageUrl
-
-    String apiKey
+class InTheatersAction extends AbstractMovieListAction {
 
     InTheatersAction() {}
 
@@ -23,23 +13,8 @@ class InTheatersAction {
         this.apiKey = apiKey
     }
 
-    def getResult() {
-        def currentUrl = getUrl() 
-
-        def json = currentUrl.toURL().getText()
-
-        def jsonMap = new JsonSlurper().parseText(json)  
-
-        //def prevUrl = jsonMap.links.self
-
-        def nextUrl = jsonMap.links.next
-
-        def nextPageTheaterAction
-        if (nextUrl) {
-            nextPageTheaterAction = new InTheatersAction(baseUrl, apiKey, itemsPerPage, pageNumber+1)
-        }
-
-        [thisAction:this,json:json,movies:jsonMap,nextPage:nextPageTheaterAction]
+    def createInstance(baseUrl, apiKey, itemsPerPage, pageNumber) {
+        return new InTheatersAction(baseUrl,apiKey,itemsPerPage,pageNumber)
     }
 
     def getUrl() {
