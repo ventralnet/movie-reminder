@@ -64,52 +64,7 @@
             </div>
         </div>
 
-        <!-- register modal --> 
-        <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Register, its free!</h3>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal">
-                    <legend>We will just need a couple pieces of info!</legend>
-                    <div class="control-group"> 
-                        <label class="control-label">Email</label>
-                        <div class="controls">
-                            <input type="email" required placeholder="me@me.com"/>
-                        </div>
-                    </div>
-                    <div class="control-group"> 
-                        <label class="control-label">First Name</label>
-                        <div class="controls">
-                            <input type="text" placeholder="First name..."/>
-                        </div>
-                    </div>
-                    <div class="control-group"> 
-                        <label class="control-label">Last Name</label>
-                        <div class="controls">
-                            <input type="text" placeholder="Last name..."/>
-                        </div>
-                    </div>
-                    <div class="control-group"> 
-                        <label class="control-label">Password</label>
-                        <div class="controls">
-                            <input type="password" placeholder="password..."/>
-                        </div>
-                    </div>
-                    <div class="control-group"> 
-                        <label class="control-label">Password Verification</label>
-                        <div class="controls">
-                            <input type="password" placeholder="password verification..."/>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn btn-primary">Register</button>
-            </div>
-        </div>
+        <g:render template="/user/registerPopup"></g:render>
 
         <div class="container">
             <r:layoutResources />
