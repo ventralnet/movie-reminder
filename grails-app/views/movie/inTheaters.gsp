@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="hero-unit">
+            <div style="margin-top:10px" class="hero-unit">
                 <div class="logoImageContainer">
                     <g:img dir="images" file="film_reel.png"/>
                 </div>
@@ -31,11 +31,11 @@
                 <p>Set reminders for when movies in theaters become available on DVD</p>
             </div>
         
-            <g:set var="movieRows" value="${movies.collate(4)}"/>
+            <g:set var="movieRows" value="${movies.collate(3)}"/>
             <g:each in="${movieRows}">
                 <div class="row-fluid inTheaterMovieRow">
                     <g:each in="${it}">
-                        <div class="span3">
+                        <div class="span4">
                             <div class="thumbnail">
                                 <img class="moviePoster" src="${it.profilePosterUrl}" alt="movie_poster"/>
                                 <div class="caption">
