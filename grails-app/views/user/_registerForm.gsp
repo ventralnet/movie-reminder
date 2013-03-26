@@ -1,14 +1,16 @@
 <script>
 $(document).ready(function() {
   $('#registrationSubmitButton').click(function(e){
+    e.preventDefault();
     // Find form and submit it
     $('#registrationForm').submit();
   });
+
 });
 </script>
 
 <div id="formContents" class="modal-body">
-    <g:formRemote id="registrationForm" update="registerFormContainer" name="registerForm" url="[controller:'user',action:'register']" class="form-horizontal">
+    <g:formRemote id="registrationForm"  update="registerFormContainer" name="registerForm" url="[controller:'user',action:'register']" class="form-horizontal">
         <legend>We will just need a couple pieces of info!</legend>
         <g:set var="errorClass" value=""/>
         <g:if test="${urc?.hasErrors() && urc?.errors['email']}">

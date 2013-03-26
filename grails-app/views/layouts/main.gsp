@@ -49,14 +49,24 @@
                     <div class="nav-collapse collapse">
                         <div class="loginRegisterContainer">
                             <g:form class="navbar-form pull-right" name="loginForm" action="login" url="[controller:'user',action:'login']">
-                                <input class="span2" name="email" id="email" type="text" placeholder="Email">
-                                <input class="span2" name="password" id="password" type="password" placeholder="Password">
-                                <button type="submit" class="btn">Sign in</button>
-                                <p style="display:inline;padding-top:10px">| <a href="#registerModal" data-toggle="modal">Register</a></p>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input class="span2" name="email" id="email" type="text" placeholder="Email">
+                                                <input class="span2" name="password" id="password" type="password" placeholder="Password">
+                                                <button type="submit" class="btn">Sign in</button>
+                                            </td>
+                                            <td>
+                                                <p style="display:inline;padding-top:10px">| <a href="#registerModal" data-toggle="modal">Register</a></p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </g:form>
                         </div>
                         <div class="userWelcomeContainer">
-                            <p class="welcomeMessage">Welcome, ${session.user?.firstname}!</p>
+                            <p class="welcomeMessage">Welcome, ${session.user?.firstName}!</p>
                             <g:link class="logoutLink" action="logout" controller="user">Logout</g:link>
                         </div>
                     </div><!--/.nav-collapse -->

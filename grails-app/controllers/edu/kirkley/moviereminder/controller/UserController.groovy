@@ -5,7 +5,7 @@ import edu.kirkley.moviereminder.domain.User
 class UserController {
 
     def login = {
-        def user = new User(firstname:'Matthew',lastname:'Kirkley',email:'matt.kirkley@gmail.com')
+        def user = User.findByEmailAndPassword(params.email, params.password)
         session.user = user
         redirect(controller:'movie',action:'inTheaters')
     }
@@ -16,7 +16,25 @@ class UserController {
     }
 
     def register = { UserRegistrationCommand urc ->
-        render(template: 'registerForm',model:[urc:urc])
+        if (request.method == 'POST') {
+            if (!urc.hasErrors()) {
+                def user = new User() 
+                user.email = urc.email
+                user.firstName = urc.firstName
+                user.lastName = urc.lastName
+                user.password = urc.password
+                user.save()
+                if (user.hasErrors()) {
+                    throw new RuntimeException("problem saving user..")
+                }
+                session.user = user
+                render "<script type='text/javascript'> window.location.href = '${createLink(controller:'movie',action:'inTheaters')}'  </script>"
+            } else {
+                render(template: 'registerForm',model:[urc:urc])
+            }
+        } else {
+            render(template: 'registerForm',model:[urc:urc])
+        }
     }
 
 }
