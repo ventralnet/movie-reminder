@@ -15,6 +15,10 @@ class MovieService {
         movies
     }
 
+    def countInTheaterMovies() {
+        def movies = Movie.countByDvdReleaseDateIsNullOrDvdReleaseDateGreaterThan(new Date())
+    }
+
     def runJob() {
         InTheaterCachePopulateJob.triggerNow()
     }

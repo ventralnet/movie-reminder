@@ -9,6 +9,8 @@ class User {
     static constraints = {
     }
 
+    static hasMany = [reminders: Reminder]
+
     long id
 
     String email
@@ -18,5 +20,7 @@ class User {
     String firstName
 
     String lastName
+
+    
 
 }
