@@ -40,7 +40,13 @@
                                 <img class="moviePoster" src="${it.profilePosterUrl}" alt="movie_poster"/>
                                 <div class="caption">
                                     <p>${it.title}</p>
-                                    <p><a href="#" class="btn btn-primary">Remind!</a>
+                                    <g:if test="${!session.user}">
+                                        <p><a href="#" class="disabled btn btn-primary">Remind!</a>
+                                    </g:if>    
+                                    <g:if test="${session.user}">
+                                        <p><a href="#" class=" btn btn-primary">Remind!</a>
+                                    </g:if>    
+                                
                                 </div>
                             </div>
                         </div>
