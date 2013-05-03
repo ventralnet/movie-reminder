@@ -51,6 +51,7 @@
                                 <img class="moviePoster" id="moviePoster-${it.id}" src="${it.profilePosterUrl}" alt="movie_poster"/>
                                 <div class="caption">
                                     <p>${it.title}</p>
+                                    <p>${it.mpaaRating}</p>
                                     <p><a href="#"  data-toggle="popover" data-content="${it.synopsis.replaceAll("\"","")}" data-original-title="${it.title}">Synopsis</a></p>
                                     <g:if test="${!session.user}">
                                         <p><a href="#" class="disabled btn btn-primary">Remind!</a>
