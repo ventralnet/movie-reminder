@@ -1,12 +1,13 @@
 <!DOCTYPE html>
     <head>
+        <g:javascript src="jquery.js"/>
         <r:require modules="bootstrap"/>
-        <r:require modules="bootstrap-js"/>
-        <g:layoutHead/>
-        <r:layoutResources />
+        <g:javascript src="bootstrap.js"/>
+        
+        
         <script type="text/javascript">
             $(document).ready(function() {
-                <g:if test="!${session.user}">
+                <g:if test="${!session.user}">
                     showLoginForm();
                 </g:if>    
 
@@ -40,6 +41,7 @@
                 padding-left:15px;
             }
         </style>
+        <g:layoutHead/>
     </head>
     
     <body>
@@ -80,5 +82,6 @@
             <r:layoutResources />
             <g:layoutBody/>
         </div>
+        <r:layoutResources />
     </body>
 </html>

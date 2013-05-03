@@ -3,6 +3,17 @@
     <head>
         <meta name="layout" content="main"/>
         <title>Movie Reminder!</title>
+        <script type="text/javascript">
+            $(function () {
+                $('body').popover({
+                    selector: '[data-toggle="popover"]'
+                });
+        
+                $('body').tooltip({
+                    selector: 'a[rel="tooltip"], [data-toggle="tooltip"]'
+                });
+            });
+        </script>
 
         <style type="text/css">
             .inTheaterMovieRow {
@@ -37,16 +48,16 @@
                     <g:each in="${it}">
                         <div class="span4">
                             <div class="thumbnail">
-                                <img class="moviePoster" src="${it.profilePosterUrl}" alt="movie_poster"/>
+                                <img class="moviePoster" id="moviePoster-${it.id}" src="${it.profilePosterUrl}" alt="movie_poster"/>
                                 <div class="caption">
                                     <p>${it.title}</p>
+                                    <p><a href="#"  data-toggle="popover" data-content="${it.synopsis.replaceAll("\"","")}" data-original-title="${it.title}">Synopsis</a></p>
                                     <g:if test="${!session.user}">
                                         <p><a href="#" class="disabled btn btn-primary">Remind!</a>
                                     </g:if>    
                                     <g:if test="${session.user}">
                                         <p><a href="#" class=" btn btn-primary">Remind!</a>
-                                    </g:if>    
-                                
+                                    </g:if>
                                 </div>
                             </div>
                         </div>
