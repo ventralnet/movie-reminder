@@ -6,12 +6,10 @@
         <script type="text/javascript">
             $(function () {
                 $('body').popover({
-                    selector: '[data-toggle="popover"]'
+                    selector: '[data-toggle="popover"]',
+                    trigger: 'hover'
                 });
         
-                $('body').tooltip({
-                    selector: 'a[rel="tooltip"], [data-toggle="tooltip"]'
-                });
             });
         </script>
 
@@ -38,7 +36,7 @@
                 <div class="logoImageContainer">
                     <g:img dir="images" file="film_reel.png"/>
                 </div>
-    <h1>Movie Reminder</h1>
+                <h1>Movie Reminder</h1>
                 <p>Set reminders for when movies in theaters become available on DVD</p>
             </div>
         
@@ -52,7 +50,7 @@
                                 <div class="caption">
                                     <p>${it.title}</p>
                                     <p>${it.mpaaRating}</p>
-                                    <p><a href="#"  data-toggle="popover" data-content="${it.synopsis.replaceAll("\"","")}" data-original-title="${it.title}">Synopsis</a></p>
+                                    <p><a href="#" data-trigger="hover" data-toggle="popover" data-content="${it.synopsis.replaceAll("\"","")}" data-original-title="${it.title}">Synopsis</a></p>
                                     <g:if test="${!session.user}">
                                         <p><a href="#" class="disabled btn btn-primary">Remind!</a>
                                     </g:if>    
